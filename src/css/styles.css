@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'in time';
+    src: url(../fonts/Gill-Sans-Light-Regular.otf);
+}
+
+body {
+    height: 100vh;
+    font-family: 'in time', sans-serif;
+    display: grid;
+    place-items: center;
+    background: url(../imagens/braço.jpeg) center no-repeat;
+    position: static;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
+h1 {
+    color: #ffffff;
+    margin: 60px 0px;
+    font-size: clamp(50px, 50%, 100px);
+    letter-spacing: 2px;
+    text-shadow: 3px hsla(161, 100%, 50%);
+    text-shadow: 1px 1px hsla(161, 100%, 50%), -1px -1px hsla(161, 100%, 50%), -1px 1px hsla(161, 100%, 50%), 1px -1px hsla(161, 100%, 50%);
+
+}
+
+.container {
+    height: 580px;
+    width: 315px;
+    position: relative;
+}
+
+
+
+.relogio {
+    display: flex;
+    transform: rotate(-65deg);
+    top: 40%;
+    left:-28%;
+    position: absolute;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li:before {
+    content: '•';
+    margin: 0 10px;
+    color: #d0e0d5;
+}
+
+
+.relogio li,
+.relogio span {
+    color: #d0e0d5;
+    font-size: clamp(30px, 50%, 60px);
+    text-shadow: 1px 1px 3px hsla(161, 100%, 50%, 0.6), -1px -1px 3px hsla(161, 100%, 50%, 0.6), -1px 1px 3px hsla(161, 100%, 50%, 0.6), 1px -1px 3px hsla(161, 100%, 50%, 0.6);
+}
