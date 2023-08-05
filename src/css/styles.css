@@ -4,64 +4,107 @@
     box-sizing: border-box;
 }
 
+ul {
+    list-style: none;
+}
+
 @font-face {
     font-family: 'in time';
     src: url(../fonts/Gill-Sans-Light-Regular.otf);
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'in time', sans-serif;
-    display: grid;
-    place-items: center;
-    background: url(../imagens/braço.jpeg) center no-repeat;
-    position: static;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    user-select: none;
+    background: rgb(148, 117, 179);
+    background: linear-gradient(0deg, rgba(148, 117, 179, 1) 0%,
+    rgba(140, 105, 221, 1) 21%,
+    rgba(31, 11, 150, 1) 56%,
+    rgba(12, 0, 83, 1) 94%);
+    color: #ffffff;
 }
 
 h1 {
-    color: #ffffff;
-    margin: 60px 0px;
     font-size: clamp(50px, 50%, 100px);
-    letter-spacing: 2px;
-    text-shadow: 3px hsla(161, 100%, 50%);
-    text-shadow: 1px 1px hsla(161, 100%, 50%), -1px -1px hsla(161, 100%, 50%), -1px 1px hsla(161, 100%, 50%), 1px -1px hsla(161, 100%, 50%);
-
+    text-align: center;
+    margin-bottom: 50px;
 }
-
-.container {
-    height: 580px;
-    width: 315px;
-    position: relative;
-}
-
-
-
 .relogio {
     display: flex;
-    transform: rotate(-65deg);
-    top: 40%;
-    left:-28%;
+    gap: 20px;
+    padding: 40px 35px;
+    border: #f2f2f260 1px solid;
+    background-color: hsla(0, 0%, 95%, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1.5pc;
+}
+
+.relogio li {
+    font-size: clamp(80px, 50%, 100px);
+    border-radius: 1pc;
+    border: #f2f2f260 1px solid;
+    padding: 20px;
+    background-color: hsla(0, 0%, 95%, 0);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+@media (max-width:500px) {
+    .relogio {
+        gap: 18px;
+        padding: 30px;
+    }
+    .relogio li {
+        font-size: 40px;
+        padding: 10px;
+    }
+    
+}
+.container {
+    height:calc(100vh  - 100px);
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bolinhas {
     position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
 }
 
-ul {
-    list-style: none;
+.bolinhas span {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: hsla(0, 0%, 88%, 0.6);
+    box-shadow: 0 0 20px 10px #ffffff60, 0 0 50px #c0c5ff, 0 0 100px #ff3961;
+    animation: upBolinhas calc(60s / var(--i)) linear infinite;
+}
+.bolinhas span::after {
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    opacity: .2;
+    border-radius: 50%;
+    background-color: hsla(0, 0%, 88%, 0.6);
+    box-shadow: 0 0 20px 10px #ffffff60, 0 0 50px #c0c5ff, 0 0 100px #ff3961;
+    animation: upBolinhas calc(120s / var(--i)) linear infinite;
 }
 
-ul li:before {
-    content: '•';
-    margin: 0 10px;
-    color: #d0e0d5;
-}
+@keyframes upBolinhas {
+    0% {
+        transform: translateY(90vh);
+    }
 
-
-.relogio li,
-.relogio span {
-    color: #d0e0d5;
-    font-size: clamp(30px, 50%, 60px);
-    text-shadow: 1px 1px 3px hsla(161, 100%, 50%, 0.6), -1px -1px 3px hsla(161, 100%, 50%, 0.6), -1px 1px 3px hsla(161, 100%, 50%, 0.6), 1px -1px 3px hsla(161, 100%, 50%, 0.6);
+    100% {
+        transform: translateY(0vh);
+    }
 }
