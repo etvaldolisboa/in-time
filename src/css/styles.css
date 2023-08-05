@@ -15,10 +15,8 @@ ul {
 
 body {
     overflow: hidden;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg,
-            rgb(40, 9, 72) 0%,
-            rgb(9, 1, 57) 99%);
+    background: #000;
+    animation: change-background 30s infinite linear;
     color: #ffffff;
 }
 
@@ -39,13 +37,14 @@ body {
 
 .relogio li {
     font-size: min(100px, 8vw);
+    text-shadow: 0 0 10px #00e1ff, 0 0 10px #00e1ff;
 }
 
 .relogio,
 .relogio li {
     border: hsla(0, 0%, 0%, 0.2) 1px solid;
     box-shadow: 5px 2px 10px 2px hsla(0, 0%, 0%, .2),
-    -5px -2px 10px 2px hsla(0, 0%, 100%, 0.1);
+        -5px -2px 10px 2px hsla(0, 0%, 100%, 0.1);
     padding: 60px;
     border-radius: 60px;
     background-color: hsla(0, 0%, 0%, 0.05);
@@ -54,6 +53,7 @@ body {
 }
 
 @media (max-width:900px) {
+
     .relogio,
     .relogio li {
         padding: 26px;
@@ -673,7 +673,7 @@ span:nth-child(60) {
         transform: translateY(100vh);
         opacity: 0;
     }
-    
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -685,9 +685,43 @@ span:nth-child(60) {
         transform: translateY(100vh);
         opacity: 1;
     }
-    
+
     to {
         transform: translateY(0);
         opacity: 0;
+    }
+}
+
+@keyframes change-background {
+    0% {
+        background-color: hsl(282, 100%, 8%);
+    }
+
+    15% {
+        background-color: hsl(182, 100%, 8%);
+    }
+
+    30% {
+        background-color: hsl(240, 100%, 8%);
+    }
+
+    45% {
+        background-color: hsl(151, 100%, 8%);
+    }
+
+    60% {
+        background-color: hsl(51, 100%, 8%);
+    }
+
+    75% {
+        background-color: hsl(30, 100%, 8%);
+    }
+
+    90% {
+        background-color: hsl(0, 100%, 8%);
+    }
+
+    100% {
+        background-color: hsl(282, 100%, 8%);
     }
 }
